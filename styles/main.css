@@ -56,6 +56,7 @@ a {
 .sub-sub-item {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: start;
   align-items: center;
   gap: 0.5rem;
@@ -78,6 +79,7 @@ a {
 
 .btn-has-child {
   position: absolute;
+  top: 0;
   left: -20px;
   color: Gray;
   user-select: none;
