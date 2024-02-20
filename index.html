@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Легкий задачники для проектов" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="./Manrope/stylesheet.css" />
+    <link rel="stylesheet" href="main.css" />
+    <title>toDoList</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ToDoList</h1>
+      <div class="backup-wrapper">
+        <a href="" class="backup">backup</a>
+        <label class="label-file">
+          <input type="file" class="input-file"></input>
+          <span class="backup">import</span>
+        </label>
+      </div>
+
+      <div class="app" id="app"></div>
+      <div class="json"></div>
+    </div>
+
+    <script src="./elements.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./create-item.js"></script>
+    <script src="./localStorage.js"></script>
+    <script src="./render-data.js"></script>
+    <!-- <script src="./data.js"></script> -->
+    <script src="./app.js"></script>
+  </body>
+</html>
