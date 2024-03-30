@@ -1,3 +1,6 @@
 Drag and Drop Sortable List
-https://www.youtube.com/watch?v=9HUlUnM3UG8
-https://www.youtube.com/watch?v=z54suepKiIU
+https://www.youtube.com/watch?v=9HUlUnM3UG8 - Drag and Drop Sortable List
+https://www.youtube.com/watch?v=z54suepKiIU - Drag and Drop Sortable List
+https://www.youtube.com/watch?v=ifroMW_F4Sc - pwa
+https://www.youtube.com/watch?v=SjxiP5r6mNg - modules
+https://www.youtube.com/watch?v=RwZLvDQB52I - структура проекта

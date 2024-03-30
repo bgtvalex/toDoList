@@ -1,6 +1,23 @@
+:root {
+  /* light */
+  --bg: #f0e9b3;
+  --header: #c4684c;
+  --text: #000000;
+  --sup: gray;
+  --json: #7fffd4;
+}
+
+.dark {
+  --bg: #2f2d00;
+  --text: #ffffff;
+  --json: #00391d;
+}
+
 body {
-  background: #f0e9b3;
+  background: var(--bg);
   font-family: 'Manrope';
+  color: var(--text);
+  transition: background 0.2s ease-in, color 0.2s ease-in;
 }
 
 .container {
@@ -8,6 +25,11 @@ body {
   max-width: 1024px;
   padding: 30px;
   margin: 0 auto;
+}
+
+img {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -123,15 +145,16 @@ a {
   color: gray;
   font-style: normal;
   font-weight: 100;
+  cursor: pointer;
 }
-
+.a-archive,
 .a-json {
   font-size: 10px;
   cursor: pointer;
   user-select: none;
 }
 .json.active {
-  background-color: aquamarine;
+  background-color: var(--json);
   padding: 15px;
   border-radius: 15px;
 }
@@ -140,29 +163,70 @@ a {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
+  position: absolute;
+  right: 40px;
 }
-.backup,
+/* .backup,
 .btn-download,
+.archive,
 .btn-copy,
-.btn-clear {
+.btn-clear */
+.icon {
   display: block;
   width: fit-content;
-  border: 1px solid black;
   border-radius: 5px;
-  padding: 1px 10px;
+  padding: 1px 5px;
   user-select: none;
   font-size: 10px;
+  font-weight: 500;
+  position: relative;
+}
+
+.archive.active::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -2px;
+  right: 2px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  line-height: 1;
+  transform: rotate(90deg);
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: 60% center;
+  transition: transform 0.2s ease-in;
+}
+.options.active {
+  transform: rotate(270deg);
 }
 
 .backup-wrapper {
+  padding: 7px;
   position: absolute;
-  top: 25px;
-  right: 30px;
+  top: -50px;
+  right: 35px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
+  transition: top 0.2s ease-in;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.backup-wrapper.active {
+  top: 20px;
 }
 
 .backup {
@@ -176,7 +240,7 @@ a {
   line-height: 18px;
   letter-spacing: 0.32px;
   /* text-transform: uppercase; */
-  margin: 0 0 8px;
+  /* margin: 0 0 8px; */
 }
 .label-file {
   position: relative;
@@ -191,8 +255,7 @@ a {
 }
 
 .btn-copy.copied {
-  background-color: green;
-  color: yellow;
+  background-color: greenyellow;
 }
 
 @media (max-width: 1024px) {
@@ -207,4 +270,20 @@ a {
 i {
   color: gray;
   font-weight: 100;
+}
+
+.dater {
+  position: absolute;
+  bottom: 1.5rem;
+  display: none;
+  width: auto;
+  height: auto;
+  background: var(--json);
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.6em;
+  color: var(--text);
+}
+.dater.active {
+  display: block;
 }

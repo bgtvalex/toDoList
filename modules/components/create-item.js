@@ -1,76 +1,21 @@
-/* T A S K */
+import { data } from '../utils/constants/data.js'
+import { createLi } from './list.js'
+import { createDiv, createSpan, createSup } from './blocks.js'
+import { createCheckBox } from './check-box.js'
+import { createH3 } from './headers.js'
+import { createBtn } from './button.js'
+import { createFormTitle } from './form.js'
+import deleteItem from '../utils/helpers/delete-Item.js'
+import renderData from '../config/render-data.js'
+import getFindItem from '../utils/helpers/get-find-item.js'
+import getDateNow from '../utils/helpers/get-time-now.js'
+import { setData } from '../data/localStorage.js'
+import { cForm } from '../config/create-form.js'
+import countAllItems from '../utils/helpers/count-all-items.js'
+import jsonToHtml from '../utils/helpers/json-to-html.js'
+import moveToArchive from '../data/move-to-archive.js'
+import { outTimeStamp } from '../utils/helpers/time-format.js'
 
-// F O R M
-function createFormItem(name, id) {
-  let forms = document.querySelectorAll('.form')
-  if (forms.length > 0) {
-    for (f of forms) {
-      f.style.display = 'none'
-    }
-  }
-
-  let time = Date.now()
-  let type = ''
-  if (name === undefined) {
-    type = 'project'
-  } else {
-    switch (name) {
-      case 'project':
-        type = 'task'
-        break
-      case 'task':
-        type = 'item'
-        break
-      case 'item':
-        type = 'sub-item'
-        break
-      case 'sub-item':
-        type = 'sub-sub-item'
-        break
-    }
-  }
-
-  let form = createForm('form'),
-    inp = createInput('item', type),
-    btn = createBtn('add', 'add')
-
-  form.append(inp)
-  form.append(btn)
-  app.appendChild(form)
-  inp.focus()
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-
-    if (inp.value == '') {
-      form.remove()
-    } else {
-      let objItem = {
-        type: type,
-        id: time.toString(),
-        title: inp.value,
-        status: 'in process',
-        start: getDateNow(time),
-        tree: 'open',
-        items: [],
-      }
-
-      if (id === undefined) {
-        data.push(objItem)
-      } else {
-        let findItem = getFindItem(id)
-        findItem.items.push(objItem)
-      }
-      setLocalStorage(data)
-      renderData(data)
-      form.remove()
-    }
-  })
-
-  return form
-}
-
-// I T E M
 function createItem(obj) {
   let taskItem = createLi(obj),
     task = createDiv(obj.type),
@@ -79,10 +24,14 @@ function createItem(obj) {
     btnTask = createBtn('task', '+'),
     btnMinus = createBtn('minus', '-'),
     countItems = document.createElement('span'),
-    doneDate = document.createElement('span'),
-    startDate = document.createElement('span'),
-    json = createSup(),
+    // date
+    createDate = createSpan(obj, 'created'),
+    startDate = createSpan(obj, 'start'),
+    finishDate = createSpan(obj, 'finish'),
+    json = createSup('json'),
+    archive = createSup('archive'),
     img = ''
+  countItems.classList.add('date')
   if (obj.tree === 'open') {
     img = '▼'
   } else {
@@ -90,46 +39,44 @@ function createItem(obj) {
   }
   const btnHasChild = createBtn('has-child', img)
 
-  countItems.classList.add('date')
-  doneDate.classList.add('date')
-  startDate.classList.add('date')
-
-  startDate.textContent = obj.start
-
-  if (obj.items.length > 0) {
+  if (obj.items?.length > 0) {
     task.append(btnHasChild)
   }
   if (obj.status === 'done') {
     check.checked = true
   }
-  if (obj.finish !== '') {
-    doneDate.textContent = obj.finish
-  }
-  if (obj.items.length > 0) {
+  if (obj.items?.length > 0) {
     if (obj.type === 'project') {
       const { count, countChecked } = countAllItems(obj.id)
       let per = Math.round((countChecked / count) * 100)
-      countItems.textContent = ` (${countChecked}/${count} - ${per}%)`
+      countItems.innerHTML = ` (${countChecked}/${count} - <b>${per}%</b>)`
     } else {
       countItems.textContent = ` (${obj.items.length})`
     }
   }
   task.append(check)
   task.append(title)
+  task.append(createDate)
+  task.append(startDate)
+  task.append(finishDate)
   if (obj.type !== 'sub-sub-item') {
     task.append(countItems)
-    task.append(btnTask)
-    task.append(btnMinus)
   }
-  task.append(startDate)
-  task.append(doneDate)
   task.append(json)
+  if (obj.type === 'project') {
+    task.append(archive)
+  }
   taskItem.append(task)
+  if (obj.type !== 'sub-sub-item') {
+    task.append(btnTask)
+  }
+  task.append(btnMinus)
 
   let count = 0
   title.addEventListener('click', function () {
     if (count === 0) {
       this.append(createFormTitle(this.textContent, obj.id))
+
       count++
     }
   })
@@ -146,31 +93,33 @@ function createItem(obj) {
       ul.classList.add('open')
       this.textContent = '▼'
     }
-    setLocalStorage(data)
+    setData(data)
   })
 
   check.addEventListener('change', function () {
     let itemId = this.parentNode.parentNode.id
     if (this.checked) {
+      // const dateNow = getDateNow()
+      const dateNow = Date.now()
       getFindItem(itemId).status = 'done'
-      getFindItem(itemId).finish = getDateNow()
+      getFindItem(itemId).finish = dateNow
 
       taskItem.classList.add('checked')
-      doneDate.textContent = getDateNow()
+      finishDate.textContent = outTimeStamp(dateNow)
     } else {
       getFindItem(itemId).status = 'in process'
       getFindItem(itemId).finish = ''
       taskItem.classList.remove('checked')
-      doneDate.textContent = ''
+      finishDate.textContent = ''
     }
-    setLocalStorage(data)
+    setData(data)
     renderData(data)
   })
 
   btnTask.addEventListener('click', function () {
     let parentType = this.parentNode.className
     let parentParentId = this.parentNode.parentNode.id
-    let form = createFormItem(parentType, parentParentId)
+    let form = cForm(parentType, parentParentId)
     taskItem.append(form)
   })
 
@@ -186,5 +135,11 @@ function createItem(obj) {
     jsonToHtml(obj)
   })
 
+  archive.addEventListener('click', function () {
+    moveToArchive(obj)
+  })
+
   return taskItem
 }
+
+export default createItem

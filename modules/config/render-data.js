@@ -1,3 +1,7 @@
+import { createUl } from '../components/list.js'
+import start from './start.js'
+import createItem from '../components/create-item.js'
+
 function renderData(data) {
   if (data) {
     let projectList = document.querySelector('.project-list')
@@ -15,12 +19,13 @@ function renderData(data) {
 
     // PROJECT
     data.map((project) => {
+      if (project?.archive) return
       let projectWrapper = createItem(project)
 
       // TASK
-      if (project.items.length !== 0) {
+      if (project.items?.length !== 0) {
         let ulTask = createUl('list', project.tree)
-        project.items.map((task) => {
+        project.items?.map((task) => {
           let taskWrapper = createItem(task)
 
           // ITEM
@@ -63,3 +68,5 @@ function renderData(data) {
     })
   }
 }
+
+export default renderData
