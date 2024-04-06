@@ -27,7 +27,7 @@ const filesToCache = [
   '/modules/utils/helpers/delete-Item.js',
   '/modules/utils/helpers/get-find-item.js',
   '/modules/utils/helpers/get-time-now.js',
-  '/modules/utils/helpers/get-version.js.js',
+  '/modules/utils/helpers/get-version.js',
   '/modules/utils/helpers/json-to-html.js',
   '/modules/utils/helpers/show-archive.js',
   '/modules/utils/helpers/show-options.js',
