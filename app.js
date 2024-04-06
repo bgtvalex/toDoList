@@ -11,7 +11,7 @@ import { version } from './modules/utils/helpers/get-version.js'
 window.addEventListener('load', async () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register('/sw.js')
+      .register('sw.js')
       .then((reg) => {
         console.log('Registration succeeded. Scope is ' + reg.scope)
       })
