@@ -1,0 +1,9 @@
+backups
+package.json
+package-lock.json
+ref.txt
+todo.md
+.gitignore
+.git
+.codeLineCounter
+LogCodeLineCounter.txt

@@ -1,6 +1,6 @@
-const ver = '10'
+const ver = '1.4.0'
 const cacheName = 'toDoList-pwa-v-' + ver
-const appShellFilesToCache = [
+const filesToCache = [
   '/',
   '/index.html',
   '/app.js',
@@ -19,6 +19,7 @@ const appShellFilesToCache = [
   '/modules/data/import-data.js',
   '/modules/data/localStorage.js',
   '/modules/data/move-to-archive.js',
+  '/modules/data/version.json',
   '/modules/utils/constants/data.js',
   '/modules/utils/constants/getApp.js',
   '/modules/utils/helpers/archive-icon-active.js',
@@ -26,6 +27,7 @@ const appShellFilesToCache = [
   '/modules/utils/helpers/delete-Item.js',
   '/modules/utils/helpers/get-find-item.js',
   '/modules/utils/helpers/get-time-now.js',
+  '/modules/utils/helpers/get-version.js.js',
   '/modules/utils/helpers/json-to-html.js',
   '/modules/utils/helpers/show-archive.js',
   '/modules/utils/helpers/show-options.js',
@@ -45,13 +47,27 @@ const dataCacheName = 'pwa-data-v-' + ver
 self.addEventListener('install', async (e) => {
   console.log('[sw]: installed')
   const cache = await caches.open(cacheName)
-  await cache.addAll(appShellFilesToCache)
+  await cache.addAll(filesToCache)
 })
 
-self.addEventListener('activate', (e) => {
-  console.log('[sw]: Activated')
+self.addEventListener('activate', event => {
+  console.log('SW activated!')
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(cacheName  => {
+          // Return true if you want to remove this cache
+        }).map(cacheName => {
+          return caches.delete(cacheName)
+        })
+      )
+    })
+  )
 })
 
+// self.addEventListener('fetch', (event) => {
+//   event.respondWith(caches.match(event.request) || fetch(event.request))
+// })
 self.addEventListener('fetch', (event) => {
   console.log('[sw]: Fetch')
 

@@ -6,11 +6,12 @@ import archiveIconActive from './modules/utils/helpers/archive-icon-active.js'
 import importData from './modules/data/import-data.js'
 import backup from './modules/data/backup.js'
 import { darkMode } from './modules/config/dark-mode.js'
+import { version } from './modules/utils/helpers/get-version.js'
 
 window.addEventListener('load', async () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register('sw.js')
+      .register('/sw.js')
       .then((reg) => {
         console.log('Registration succeeded. Scope is ' + reg.scope)
       })
@@ -27,6 +28,7 @@ archiveIconActive()
 importData()
 backup()
 darkMode()
+version()
 
 if (data.length === 0) {
   start()

@@ -27,6 +27,11 @@ body {
   margin: 0 auto;
 }
 
+h1 {
+  display: inline-block;
+  /* margin-right: 5px; */
+}
+
 img {
   width: 15px;
   height: 15px;
@@ -286,4 +291,10 @@ i {
 }
 .dater.active {
   display: block;
+}
+
+.version {
+  display: inline-block;
+  font-size: 12px;
+  font-style: italic;
 }

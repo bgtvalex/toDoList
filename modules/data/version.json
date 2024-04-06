@@ -1,0 +1,206 @@
+[
+  {
+    "date": "24.01.2024",
+    "version": "0.0.1",
+    "works": "plan"
+  },
+  {
+    "date": "25.01.2024",
+    "version": "0.0.2",
+    "works": "title, create(btn, checkbox,h2,title)"
+  },
+  {
+    "date": "01.02.2024",
+    "version": "0.0.3",
+    "works": "Project, dateStart, dateEnd, remove Project"
+  },
+  {
+    "date": "02.02.2024",
+    "version": "0.0.4",
+    "works": "favicon, task, ul-task, form-task, рефакторинг"
+  },
+  {
+    "date": "05.02.2024",
+    "version": "0.0.5",
+    "works": "localStorage, data.map"
+  },
+  {
+    "date": "06.02.2024",
+    "version": "0.0.6",
+    "works": "верстка"
+  },
+  {
+    "date": "07.02.2024",
+    "version": "0.0.7",
+    "works": "data(project, task, item) => html"
+  },
+  {
+    "date": "08.02.2024",
+    "version": "0.0.8",
+    "works": "render, btn-has-child:rotate"
+  },
+  {
+    "date": "09.02.2024",
+    "version": "0.0.9",
+    "works": "btn-has-child"
+  },
+  {
+    "date": "10.02.2024",
+    "version": "0.0.10",
+    "works": "render data, start"
+  },
+  {
+    "date": "12.02.2024",
+    "version": "0.0.11",
+    "works": "input item, add item - find(2)"
+  },
+  {
+    "date": "13.02.2024",
+    "version": "0.0.12",
+    "works": "addItem, getFindItem, deleteItem, tree, title, check, count, %"
+  },
+  {
+    "date": "14.02.2024",
+    "version": "0.0.13",
+    "works": "backup",
+    "details": "json, copy, backup"
+  },
+  {
+    "date": "15.02.2024",
+    "version": "0.0.14",
+    "works": "backup: import",
+    "details": "sub-sub-item, import project, import db"
+  },
+  {
+    "date": "20.02.2024",
+    "version": "0.0.15",
+    "works": "mobile layout",
+    "details": "mobile layout"
+  },
+  {
+    "date": "22.02.2024",
+    "version": "0.0.16",
+    "works": "archive",
+    "details": "archive"
+  },
+  {
+    "date": "22.02.2024",
+    "version": "0.1.1",
+    "works": "options",
+    "details": "archive, options"
+  },
+  {
+    "date": "23.02.2024",
+    "version": "0.1.2",
+    "works": "options",
+    "details": "button svg"
+  },
+  {
+    "date": "26.02.2024",
+    "version": "0.2.1",
+    "works": "PWA",
+    "details": "pwa manifest"
+  },
+  {
+    "date": "04.03.2024",
+    "version": "0.2.2.0",
+    "works": "PWA",
+    "details": "pwa test"
+  },
+  {
+    "date": "05.03.2024",
+    "version": "0.2.2.1",
+    "works": "PWA",
+    "details": "pwa test"
+  },
+  {
+    "date": "13.03.2024",
+    "version": "0.2.2.3",
+    "works": "PWA",
+    "details": "pwa теория + test"
+  },
+  {
+    "date": "14.03.2024",
+    "version": "0.2.2.4",
+    "works": "PWA",
+    "details": "pwa теория (ServiceWorker)+ test"
+  },
+  {
+    "date": "18.03.2024",
+    "version": "0.2.2.5",
+    "works": "PWA",
+    "details": "pwa теория (ServiceWorker)+ test"
+  },
+  {
+    "date": "18.03.2024",
+    "version": "0.2.3.0",
+    "works": "PWA",
+    "details": "pwa sw.js"
+  },
+  {
+    "date": "20.03.2024",
+    "version": "1.0.0",
+    "works": "modules",
+    "details": "modules"
+  },
+  {
+    "date": "21.03.2024",
+    "version": "1.0.1",
+    "works": "modules",
+    "details": "modules: start => create-form - form"
+  },
+  {
+    "date": "22.03.2024",
+    "version": "1.0.2",
+    "works": "modules",
+    "details": "modules"
+  },
+  {
+    "date": "23.03.2024",
+    "version": "1.0.3",
+    "works": "modules",
+    "details": "modules"
+  },
+  {
+    "date": "25.03.2024",
+    "version": "1.1.0",
+    "works": "dark-mode",
+    "details": "dark-mode"
+  },
+  {
+    "date": "26.03.2024",
+    "version": "1.1.2",
+    "works": "dark-mode",
+    "details": "dark-mode"
+  },
+  {
+    "date": "28.03.2024",
+    "version": "1.2.0",
+    "works": "time",
+    "details": "time: created, start"
+  },
+  {
+    "date": "29.03.2024",
+    "version": "1.2.1",
+    "works": "time",
+    "details": "время: отображение created, start"
+  },
+  {
+    "date": "30.03.2024",
+    "version": "1.2.2",
+    "works": "time",
+    "details": "время: отображение created, start, pwa"
+  },
+  {
+    "date": "02.04.2024",
+    "version": "1.3.0",
+    "works": "version",
+    "details": "json, output"
+  },
+  {
+    "date": "03.04.2024",
+    "version": "1.4.0",
+    "works": "PWA",
+    "details": "pwa: update"
+  }
+]
