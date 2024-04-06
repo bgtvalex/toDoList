@@ -1,7 +1,7 @@
 const $ver = document.querySelector('.version')
 
 function getVersion() {
-  fetch('/modules/data/version.json')
+  fetch('./modules/data/version.json')
     .then((response) => {
       return response.json()
     })
