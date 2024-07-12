@@ -1,3 +1,6 @@
+// import { version } from "./modules/utils/helpers/get-version"
+// version()
+
 const ver = '1.4.0'
 const cacheName = 'toDoList-pwa-v-' + ver
 const filesToCache = [
