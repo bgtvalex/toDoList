@@ -8,7 +8,7 @@ function backup() {
     let jsonMain = localStorage.getItem('toDoList')
     this.href =
       'data:application/json;charset=utf-8,' + encodeURIComponent(jsonMain)
-    this.download = 'toDoList-' + getDateNow()
+    this.download = 'toDoList-' + getDateNow() + '.json'
   })
 }
 
