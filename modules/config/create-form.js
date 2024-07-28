@@ -57,7 +57,7 @@ function createForm(name = undefined, id) {
         start: '',
         finish: '',
         title: inp.value,
-        status: 'in process',
+        status: 'created',
         tree: 'open',
         items: [],
       }

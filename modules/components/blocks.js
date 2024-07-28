@@ -72,9 +72,11 @@ const blocks = {
       switch (type) {
         case 'created':
           t.start = Date.now()
+          t.status = 'in process'
           break
         case 'start':
           t.start = ''
+          t.status = 'created'
           break
       }
       setData(data)

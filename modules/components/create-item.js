@@ -76,7 +76,6 @@ function createItem(obj) {
   title.addEventListener('click', function () {
     if (count === 0) {
       this.append(createFormTitle(this.textContent, obj.id))
-
       count++
     }
   })

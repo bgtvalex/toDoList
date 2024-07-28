@@ -214,5 +214,11 @@
     "version": "1.5.1",
     "works": "in process",
     "details": "in process - color green"
+  },
+  {
+    "date": "28.07.2024",
+    "version": "1.5.2",
+    "works": "start: change color",
+    "details": "in process - color green"
   }
 ]
