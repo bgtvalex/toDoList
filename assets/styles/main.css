@@ -5,12 +5,14 @@
   --text: #000000;
   --sup: gray;
   --json: #7fffd4;
+  --green: green;
 }
 
 .dark {
   --bg: #2f2d00;
   --text: #ffffff;
   --json: #00391d;
+  --green: lightgreen;
 }
 
 body {
@@ -51,6 +53,10 @@ a {
 .btn-start {
   font-size: 35px;
   line-height: 0.5;
+}
+
+.green {
+  color: var(--green);
 }
 
 /* FORM */

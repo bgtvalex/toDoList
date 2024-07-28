@@ -7,6 +7,7 @@ import importData from './modules/data/import-data.js'
 import backup from './modules/data/backup.js'
 import { darkMode } from './modules/config/dark-mode.js'
 import { version } from './modules/utils/helpers/get-version.js'
+import { status } from './modules/utils/dev/change-status.js'
 
 window.addEventListener('load', async () => {
   if ('serviceWorker' in navigator) {
@@ -29,6 +30,8 @@ importData()
 backup()
 darkMode()
 version()
+status()
+
 
 if (data.length === 0) {
   start()

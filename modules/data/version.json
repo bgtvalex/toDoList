@@ -208,5 +208,11 @@
     "version": "1.5.0",
     "works": "backup",
     "details": "backup: title+date"
+  },
+  {
+    "date": "28.07.2024",
+    "version": "1.5.1",
+    "works": "in process",
+    "details": "in process - color green"
   }
 ]

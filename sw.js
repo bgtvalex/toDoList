@@ -48,13 +48,13 @@ const filesToCache = [
 const dataCacheName = 'pwa-data-v-' + ver
 
 self.addEventListener('install', async (e) => {
-  console.log('[sw]: installed')
+  // console.log('[sw]: installed')
   const cache = await caches.open(cacheName)
   await cache.addAll(filesToCache)
 })
 
 self.addEventListener('activate', event => {
-  console.log('SW activated!')
+  // console.log('SW activated!')
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -68,7 +68,7 @@ self.addEventListener('activate', event => {
   )
 })
 self.addEventListener('fetch', (event) => {
-  console.log('[sw]: Fetch')
+  // console.log('[sw]: Fetch')
 
   event.respondWith(
     caches

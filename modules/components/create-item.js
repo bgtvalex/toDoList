@@ -20,7 +20,7 @@ function createItem(obj) {
   let taskItem = createLi(obj),
     task = createDiv(obj.type),
     check = createCheckBox(),
-    title = createH3(obj.type + '-title', obj.title),
+    title = createH3(obj.type + '-title', obj.title, obj.status),
     btnTask = createBtn('task', '+'),
     btnMinus = createBtn('minus', '-'),
     countItems = document.createElement('span'),

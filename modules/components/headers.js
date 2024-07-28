@@ -7,9 +7,14 @@ const headers = {
 	
 		return h2
 	},
-	createH3: (cl, str) => {
+	createH3: (cl, str, status) => {
 		let h3 = document.createElement('h3')
 		h3.classList.add(cl)
+		console.log('status:', status)
+		if (status == 'in process') {
+
+			h3.classList.add('green')
+		}
 		h3.textContent = str
 	
 		return h3
